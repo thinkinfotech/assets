@@ -27,13 +27,13 @@
   .bmpui-ui-playnextbutton {
     height: 4em;
     outline: none;
-    width: 7em; 
+    width: 5em; 
     position: relative;
   }
 
   .bmpui-ui-playnextbutton::after {
     color: #FFFFFF;
-    content: "Play Next";
+    content: "Next";
     font-weight: 400;
     font-size: 16px;
     line-height: 14px;
