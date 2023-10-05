@@ -1,5 +1,5 @@
   .bmpui-ui-hugereplaybutton {
-    height: 3.3em;
+    height: 5em;
     outline: none;
     width: 5em;
     position: relative;
@@ -25,7 +25,7 @@
   }
 
   .bmpui-ui-playnextbutton {
-    height: 4em;
+    height: 5em;
     outline: none;
     width: 7em; 
     position: relative;
