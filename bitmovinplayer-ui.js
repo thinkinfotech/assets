@@ -2044,9 +2044,11 @@ var HugePlaybackToggleButton = /** @class */ (function (_super) {
         // Setting the image directly on the button does not work together with scaling animations, because the button
         // can cover the whole video player are and scaling would extend it beyond. By adding an inner element, confined
         // to the size if the image, it can scale inside the player without overshooting.
+      
         buttonElement.append(new dom_1.DOM('div', {
             'class': this.prefixCss('image'),
         }));
+
         return buttonElement;
     };
     /**
@@ -2094,8 +2096,8 @@ var PlayNextButton = /** @class */ (function (_super) {
         if (config === void 0) { config = {}; }
         var _this = _super.call(this, config) || this;
         _this.config = _this.mergeConfig(config, {
-            cssClass: 'ui-playnextbutton',
-            text: 'Next',
+            cssClass: 'ui-hugereplaybutton',
+            text: 'Play Next',
         }, _this.config);
         return _this;
     }
@@ -2103,7 +2105,7 @@ var PlayNextButton = /** @class */ (function (_super) {
     PlayNextButton.prototype.configure = function (player, uimanager) {
         _super.prototype.configure.call(this, player, uimanager);
 
-        this.hide()
+        //this.hide()
         if (window.bitmovin.customMessageHandler) {
             window.bitmovin.customMessageHandler.on('playNextVideo', (data) => {
                 if (data === 'renderNextButton') {
@@ -2128,9 +2130,23 @@ var PlayNextButton = /** @class */ (function (_super) {
         // Setting the image directly on the button does not work together with scaling animations, because the button
         // can cover the whole video player are and scaling would extend it beyond. By adding an inner element, confined
         // to the size if the image, it can scale inside the player without overshooting.
-        buttonElement.append(new dom_1.DOM('div', {
+        //buttonElement.css('background-color', 'green');
+        var imageElement = new dom_1.DOM('div', {
             'class': this.prefixCss('image'),
-        }));
+        });
+        imageElement.css('background-image', 'url("data:image/svg+xml,%3C%3Fxml version=\'1.0\' encoding=\'utf-8\'%3F%3E%3C!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version=\'1.1\' id=\'Layer_1\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\' x=\'0px\' y=\'0px\' viewBox=\'0 0 32 32\' style=\'enable-background:new 0 0 32 32;\' xml:space=\'preserve\'%3E%3Cstyle type=\'text/css\'%3E .st0%7Bfill:%23FFFFFF;%7D%0A%3C/style%3E%3Cg id=\'Rectangle_2_copy_3_1_\'%3E%3Cg%3E%3Cpath class=\'st0\' d=\'M24.2,5.4h-2.4c-1.3,0-2.4,1.1-2.4,2.4v16.5c0,1.3,1.1,2.4,2.4,2.4h2.4c1.3,0,2.4-1.1,2.4-2.4V7.7 C26.5,6.4,25.5,5.4,24.2,5.4z M24.2,24.3h-2.4V7.7h2.4V24.3z\'/%3E%3C/g%3E%3C/g%3E%3Cg id=\'Shape_3_1_\'%3E%3Cg%3E%3Cpath class=\'st0\' d=\'M21.3,14.9L8.5,5.5C8,5.4,7.5,5.3,7.2,5.5C6.7,5.7,6.5,6.2,6.5,6.6v18.8c0,0.5,0.2,0.9,0.7,1.1 c0.1,0.2,0.4,0.2,0.5,0.2c0.2,0,0.5-0.1,0.7-0.2l12.9-9.4c0.4-0.2,0.5-0.6,0.5-1.1C21.7,15.4,21.6,15.2,21.3,14.9z M8.9,23V9 l9.6,7L8.9,23z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")');
+
+        var textElement = new dom_1.DOM('div', {
+            'class': 'bmpui-ui-hugereplaybutton-text',
+        });
+
+        textElement.html('Play Next');
+
+
+       
+
+        buttonElement.append(imageElement);
+        buttonElement.append(textElement);
 
         return buttonElement;
     };
@@ -2188,6 +2204,12 @@ var HugeReplayButton = /** @class */ (function (_super) {
         buttonElement.append(new dom_1.DOM('div', {
             'class': this.prefixCss('image'),
         }));
+        var textElement = new dom_1.DOM('div', {
+            'class': 'bmpui-ui-hugereplaybutton-text',
+        });
+
+        textElement.html('Replay');
+        buttonElement.append(textElement);
         return buttonElement;
     };
     return HugeReplayButton;
